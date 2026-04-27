@@ -73,6 +73,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.990303, 2.3611841, 0)
 mesh = SubResource("CapsuleMesh_ulcgi")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=800469449]
+size = Vector2i(990, 508)
 render_target_update_mode = 4
 
 [node name="SpotLight3D" type="SpotLight3D" parent="SubViewport" unique_id=544387269]

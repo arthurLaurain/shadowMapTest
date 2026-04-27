@@ -1,10 +1,10 @@
 shader_type spatial;
 uniform sampler2D screen_tex: hint_screen_texture;
-uniform sampler2D depth_tex;
+uniform sampler2D depth_tex: filter_linear_mipmap_anisotropic;
 
 void fragment()
 {
-	ALBEDO = texture(depth_tex, vec2(SCREEN_UV.x, SCREEN_UV.y)).rgb;
+	ALBEDO = pow(texture(depth_tex, SCREEN_UV).rgb,vec3(2.2));
 }
 
 void light()
