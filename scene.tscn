@@ -3,23 +3,30 @@
 [ext_resource type="Shader" uid="uid://jvjqdyi54kln" path="res://viewQuad.gdshader" id="1_nxogm"]
 [ext_resource type="Shader" uid="uid://ck1u24hex62p2" path="res://shadow.gdshader" id="1_ulcgi"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nxogm"]
+sky_curve = 0.025613073
+
+[sub_resource type="Sky" id="Sky_3253y"]
+sky_material = SubResource("ProceduralSkyMaterial_nxogm")
+
+[sub_resource type="Environment" id="Environment_u3cyc"]
+background_mode = 2
+sky = SubResource("Sky_3253y")
+ambient_light_source = 1
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nxogm"]
+viewport_path = NodePath("SubViewport")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3253y"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_nxogm")
+shader_parameter/depth_tex = SubResource("ViewportTexture_nxogm")
 
 [sub_resource type="QuadMesh" id="QuadMesh_u3cyc"]
 material = SubResource("ShaderMaterial_3253y")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ulcgi"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nxogm"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_ulcgi")
-
 [sub_resource type="QuadMesh" id="QuadMesh_ulcgi"]
-material = SubResource("StandardMaterial3D_nxogm")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ulcgi"]
 
@@ -33,13 +40,16 @@ material = SubResource("ShaderMaterial_ulcgi")
 
 [node name="Scene" type="Node3D" unique_id=624835375]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1136853171]
+environment = SubResource("Environment_u3cyc")
+
 [node name="MainCamera" type="Camera3D" parent="." unique_id=987879484]
-transform = Transform3D(0.64722896, 0, 0.7622956, 0, 1, 0, -0.7622956, 0, 0.64722896, 13.605884, 6.0506997, 6.5052924)
+transform = Transform3D(0.647229, 0, 0.76229566, 0, 1, 0, -0.76229566, 0, 0.647229, 13.605884, 6.0506997, 6.5214543)
 cull_mask = 1048573
 current = true
 
 [node name="FullquadMesh" type="MeshInstance3D" parent="MainCamera" unique_id=630607672]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.057)
+transform = Transform3D(0.9999999, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 0.9999999, 0, 0, -0.05)
 mesh = SubResource("QuadMesh_u3cyc")
 
 [node name="fond" type="MeshInstance3D" parent="." unique_id=1144108550]
@@ -63,13 +73,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.990303, 2.3611841, 0)
 mesh = SubResource("CapsuleMesh_ulcgi")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=800469449]
-size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="SpotLight3D" type="SpotLight3D" parent="SubViewport" unique_id=544387269]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.928965, 5, 0)
-spot_range = 9.663
-spot_angle = 47.48
+spot_range = 18.26256
+spot_angle = 40.35
 
 [node name="Camera_depthTex" type="Camera3D" parent="SubViewport" unique_id=1081361720]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.928965, 5, 0)
