@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode unshaded, depth_draw_never, cull_disabled;
+render_mode unshaded;
 uniform sampler2D depth_tex : hint_depth_texture;
 uniform float linear_depth_bias : hint_range(1., 100., 0.1);
 
@@ -12,4 +12,5 @@ void fragment() {
 
     float linear_depth = -view.z;
 	ALBEDO = vec3(clamp(linear_depth / linear_depth_bias, 0.0, 1.0));
+	
 }

@@ -34,3 +34,18 @@ mat3 rotateY(float angle)
     );
 	return rotY;
 }
+
+mat4 ortho(float left, float right,
+           float bottom, float top,
+           float near, float far)
+{
+    return mat4(
+        vec4(2.0 / (right - left), 0.0, 0.0, 0.0),
+        vec4(0.0, 2.0 / (top - bottom), 0.0, 0.0),
+        vec4(0.0, 0.0, -2.0 / (far - near), 0.0),
+        vec4(-(right + left) / (right - left),
+             -(top + bottom) / (top - bottom),
+             -(far + near) / (far - near),
+             1.0)
+    );
+}
