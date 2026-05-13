@@ -14,14 +14,14 @@ background_mode = 2
 sky = SubResource("Sky_3253y")
 ambient_light_sky_contribution = 0.21
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3253y"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nxogm"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nxogm"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_nxogm")
-shader_parameter/depth_tex_light = SubResource("ViewportTexture_3253y")
+shader_parameter/depth_tex_light = SubResource("ViewportTexture_nxogm")
 
 [sub_resource type="QuadMesh" id="QuadMesh_ulcgi"]
 material = SubResource("ShaderMaterial_nxogm")
@@ -33,7 +33,6 @@ material = SubResource("ShaderMaterial_nxogm")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ulcgi"]
 render_priority = 0
 shader = ExtResource("1_ulcgi")
-shader_parameter/linear_depth_bias = 50.0000007301588
 
 [sub_resource type="QuadMesh" id="QuadMesh_nxogm"]
 material = SubResource("ShaderMaterial_ulcgi")
@@ -47,6 +46,7 @@ environment = SubResource("Environment_u3cyc")
 transform = Transform3D(0.647229, 0, 0.76229566, 0, 1, 0, -0.76229566, 0, 0.647229, 13.605884, 6.0506997, 6.5214543)
 cull_mask = 1048573
 current = true
+far = 20.0
 
 [node name="fond" type="MeshInstance3D" parent="." unique_id=1144108550]
 transform = Transform3D(-4.371139e-07, 0, 1, 0, 10, 0, -10, 0, -4.371139e-08, 0, 5, 0)
@@ -72,7 +72,7 @@ visible = false
 mesh = SubResource("QuadMesh_ulcgi")
 
 [node name="bean" type="MeshInstance3D" parent="." unique_id=82306164]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.604591, 5, -0.31782496)
 mesh = SubResource("CapsuleMesh_ulcgi")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=800469449]
@@ -89,6 +89,7 @@ spot_angle = 29.65
 [node name="Camera_depthTex" type="Camera3D" parent="SubViewport" unique_id=1081361720]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.335413, 5, 0)
 current = true
+far = 20.0
 
 [node name="FullquadMesh" type="MeshInstance3D" parent="SubViewport/Camera_depthTex" unique_id=1648506268]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.057)
