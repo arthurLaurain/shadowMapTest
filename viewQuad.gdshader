@@ -1,5 +1,4 @@
 shader_type spatial;
-render_mode unshaded;
 #include "lightUtils.gdshaderinc"
 
 uniform sampler2D screen_tex: hint_screen_texture;
@@ -31,7 +30,7 @@ void fragment()
 	float depth_light = pow(texture(depth_tex_light, uv).r,2.2);
 	float bias = 0.005;
 	if(current_depth - bias > depth_light)
-		shadow = 0.0;
+		shadow = pow(depth_light,2.);
 	vec3 screen_color = texture(screen_tex, SCREEN_UV).rgb * shadow;
 	ALBEDO = vec3(shadow);
 }

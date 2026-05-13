@@ -72,7 +72,7 @@ visible = false
 mesh = SubResource("QuadMesh_ulcgi")
 
 [node name="bean" type="MeshInstance3D" parent="." unique_id=82306164]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.604591, 5, -0.31782496)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.471829, 5, 0)
 mesh = SubResource("CapsuleMesh_ulcgi")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=800469449]
