@@ -72,7 +72,7 @@ visible = false
 mesh = SubResource("QuadMesh_ulcgi")
 
 [node name="bean" type="MeshInstance3D" parent="." unique_id=82306164]
-transform = Transform3D(0.5679874, 0.82303727, 0, -0.3685609, 0.25434807, -0.8941308, -0.73590297, 0.507855, 0.44780585, 3.523259, 5, 2.1241188)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.513888, 5, 0)
 mesh = SubResource("CapsuleMesh_ulcgi")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=800469449]
@@ -82,7 +82,6 @@ render_target_update_mode = 4
 [node name="SpotLight3D" type="SpotLight3D" parent="SubViewport" unique_id=544387269]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.928965, 5, 0)
 light_energy = 8.762
-shadow_enabled = true
 distance_fade_length = 2240.5
 spot_range = 29.67
 spot_angle = 29.65
