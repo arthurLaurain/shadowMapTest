@@ -30,30 +30,3 @@ mat4 create_projection_matrix(float fov, float aspect, float z_near, float z_far
         vec4(0.0, 0.0, (2.0 * z_far * z_near) / (z_near - z_far), 0.0)
     );
 }
-
-mat3 rotateY(float angle)
-{
-	float c = cos(angle);
-	float s = sin(angle);
-	mat3 rotY = mat3(
-    vec3(c, 0.0, s),
-    vec3(0.0, 1.0, 0.0),
-    vec3(-s, 0.0, c)
-    );
-	return rotY;
-}
-
-mat4 ortho(float left, float right,
-           float bottom, float top,
-           float near, float far)
-{
-    return mat4(
-        vec4(2.0 / (right - left), 0.0, 0.0, 0.0),
-        vec4(0.0, 2.0 / (top - bottom), 0.0, 0.0),
-        vec4(0.0, 0.0, -2.0 / (far - near), 0.0),
-        vec4(-(right + left) / (right - left),
-             -(top + bottom) / (top - bottom),
-             -(far + near) / (far - near),
-             1.0)
-    );
-}

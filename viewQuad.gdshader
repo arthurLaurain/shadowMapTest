@@ -27,10 +27,10 @@ void fragment()
 	current_depth = LinearizeDepth(current_depth) / far_plane;
 	
 	float shadow = 1.;
-	float depth_light = pow(texture(depth_tex_light, uv).r,2.2);
+	float depth_light = pow(texture(depth_tex_light, vec2(uv.x,uv.y)).r,2.2);
 	float bias = 0.005;
 	if(current_depth - bias > depth_light)
 		shadow = pow(depth_light,2.);
 	vec3 screen_color = texture(screen_tex, SCREEN_UV).rgb * shadow;
-	ALBEDO = vec3(shadow);
+	ALBEDO = vec3(depth_light);
 }
